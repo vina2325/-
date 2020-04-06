@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Noto+Sans+TC&display=swap');
+
+        body {
+            background: black;
+            font-family: 'Noto Sans TC', sans-serif;
+        }
+
+
+        .change {
+            position: relative;
+            background: white;
+            box-shadow: 2px 2px 5px rgb(36, 35, 35);
+            height: 120x;
+            width: 240px;
+            margin: auto;
+            top: calc(50vh - 60px);
+            text-align: center;
+            line-height: 40px;
+            border-radius: 10px;
+
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="change">
+        R<input type="range" id="redChange" min="0" max="255" value="0">
+        <span id="text1" style="display: inline-block;width: 25px;">0</span>
+        <input type="button" id="btn1" value="隨機" style="font-family:'Noto Sans TC', sans-serif;">
+        <br>
+        G<input type="range" id="greenChange" min="0" max="255" value="0">
+        <span id="text2" style="display: inline-block;width: 25px;">0</span>
+        <input type="button" id="btn2" value="隨機" style="font-family:'Noto Sans TC', sans-serif;">
+        <br>
+        B<input type="range" id="blueChange" min="0" max="255" value="0">
+        <span id="text3" style="display: inline-block;width: 25px;">0</span>
+        <input type="button" id="btn3" value="隨機" style="font-family:'Noto Sans TC', sans-serif;">
+        <br>
+    </div>
+
+    <script>
+        const redChange = document.getElementById("redChange");
+        const greenChange = document.getElementById("greenChange");
+        const blueChange = document.getElementById("blueChange");
+        const text1 = document.getElementById("text1");
+        const text2 = document.getElementById("text2");
+        const text3 = document.getElementById("text3");
+        const btn1 = document.getElementById("btn1");
+        const btn2 = document.getElementById("btn2");
+        const btn3 = document.getElementById("btn3");
+
+        redChange.oninput = () => {
+            document.body.style.background = `rgb(${redChange.value}, ${greenChange.value},${blueChange.value}`;
+            text1.innerText = `${redChange.value}`
+        }
+
+
+        greenChange.oninput = () => {
+            document.body.style.background = `rgb(${redChange.value}, ${greenChange.value},${blueChange.value}`;
+            text2.innerText = `${greenChange.value}`
+        }
+
+        blueChange.oninput = () => {
+            document.body.style.background = `rgb(${redChange.value}, ${greenChange.value},${blueChange.value}`;
+            text3.innerText = `${blueChange.value}`
+        }
+
+        btn1.onclick = () => {
+            redChange.value = Math.round(Math.random() * 255);
+            document.body.style.background = `rgb(${redChange.value}, ${greenChange.value},${blueChange.value}`;
+            text1.innerText = `${redChange.value}`
+        }
+
+        btn2.onclick = () => {
+            greenChange.value = Math.round(Math.random() * 255);
+            document.body.style.background = `rgb(${redChange.value}, ${greenChange.value},${blueChange.value}`;
+            text2.innerText = `${greenChange.value}`
+        }
+
+        btn3.onclick = () => {
+            blueChange.value = Math.round(Math.random() * 255);
+            document.body.style.background = `rgb(${redChange.value}, ${greenChange.value},${blueChange.value}`;
+            text3.innerText = `${blueChange.value}`
+        }
+    </script>
+</body>
+
+</html>
